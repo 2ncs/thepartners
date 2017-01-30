@@ -1,0 +1,50 @@
+{% extends "site_base.html" %}
+
+{% load i18n %}
+{% load render_table from django_tables2 %}
+{% load static %}
+{% load bootstrap %}
+{% block body_base %}
+
+{% csrf_token %}
+
+<div class="container">
+	<br><br><br><br><br><br><br><br>
+	<div class="row">
+		<div class="col-xs-6 col-md-4" style="width:20%">
+    <div class="panel-heading"><strong>{% trans "Settings" %}</strong></div>
+    <div class="list-group">
+        <a class="list-group-item account-settings" href="update">
+            Update Data
+        </a>
+        <a class="list-group-item account-password" href="{% url "account_password" %}">
+            {% trans "Change password" %}
+        </a>
+        <a class="list-group-item account-delete" href="{% url "account_delete" %}">
+            {% trans "Delete account" %}
+        </a>
+    </div>
+</div>
+
+
+	
+	
+			<div class="col-xs-12 col-sm-6 col-md-8">
+				
+				<font size="5" color="red" >All Clients</font><br>
+				<br>
+				{% render_table data %}
+			</div>
+				
+		
+	</div>
+	<br><br><br><br><br><br><br><br>
+</div>
+
+<style>
+
+
+</style>
+
+
+{% endblock %}

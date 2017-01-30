@@ -1,0 +1,164 @@
+{% extends "water/dashboard/dashboard_customers_served_active_promo_codes.html" %}
+{% load i18n %}
+{% load render_table from django_tables2 %}
+{% load static %}
+{% block contentbody %}
+
+
+
+
+
+<div class="row">
+	<div class="col col-md-6">
+		<div class="card">
+			<div class="header">
+				<h4 class="title">Volume Pricing</h4>
+				<br><br>
+			</div>
+			<div id="trapezi" class="content table-responsive table-full-width">
+					
+				<table class="table table-hover table-striped">
+					<tbody>
+					<tr>
+						{% csrf_token %}
+						<td class="firstrow-first"> &nbsp; Guests</td>					
+						<td align="center" class="line">0-{{ orio1 }}</td>
+						<td align="center" class="line">{{ scale1 }}-{{ orio2 }}</td>
+						<td align="center" class="firstrow-last">{{ scale2 }}+</td>
+							
+					</tr>
+					
+					<tr>	
+						<td class="secondrow-first">Cost Per Guest</td>
+						<td align="center" class="low">€{{ timh1 }}</td>
+						<td align="center" class="low">€{{ timh2 }}</td>
+						<td align="center" class="secondrow-last">€{{ timh3 }}</td>
+							
+					</tr>
+					</tbody>
+				</table>	
+					  
+					
+					<br><br>
+					
+					</div>
+			</div>
+		</div>
+		
+		
+
+	</div>
+                                    
+<style>
+.verticalLine{
+	border-right: solid #DFD5D5;
+	border-bottom: solid #DFD5D5;
+	
+	
+}
+
+.horizontalLine{
+	border-left: solid #DFD5D5;
+	
+	
+}
+
+.bottomLine{
+	border-bottom: solid #DFD5D5;
+	padding: 0;
+	
+}
+
+.nopadding {
+	padding: 0 !important;
+	left-padding: 0 !important;
+	margin:30 !important;
+}
+
+.nopadding-top {
+	padding-top: none !important;
+}
+
+
+.padding {
+	padding-right: 0 !important;
+	
+	margin: none !important;
+}
+
+.last{
+	padding-left: 0 !important;
+	
+}
+
+.line {
+	border-right: solid 1px #C6BDBD;
+	border-left: solid 1px #C6BDBD;
+	border-top: none;
+	border-bottom: solid 1px #C6BDBD;
+	
+}
+
+.firstrow-first {
+	border-right: solid 1px #C6BDBD;
+	border-left: none;
+	border-top: none;
+	border-bottom: solid 1px #C6BDBD;
+	color:red;
+	
+}	
+
+.firstrow-last {
+	border-right: none;
+	border-left: solid 1px #C6BDBD;
+	border-top: none;
+	border-bottom: solid 1px #C6BDBD;
+	
+}	
+
+.secondrow-first {
+	border-right: solid 1px #C6BDBD;
+	border-left: none;
+	border-top: solid 1px #C6BDBD;
+	border-bottom: none;
+	color:red;
+	
+}	
+
+.secondrow-last {
+	border-right: none;
+	border-left: solid 1px #C6BDBD;
+	border-top: solid 1px #C6BDBD;
+	border-bottom: none;
+	
+}	
+	
+tr {
+	border-top: none;
+}
+
+th {
+	border-top: none;
+}
+table{
+	border: none;
+	padding: 10px;
+}
+
+td {
+	border-top: none !important;
+
+}
+
+.low {
+	border-right: solid 1px #C6BDBD;
+	border-left: solid 1px #C6BDBD;
+	border-top: solid 1px #C6BDBD;
+	border-bottom: none;
+}	
+</style>
+
+
+                                    
+                                    
+{% endblock %}                                    

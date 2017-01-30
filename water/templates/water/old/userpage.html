@@ -1,0 +1,94 @@
+{% extends "site_base.html" %}
+
+{% load i18n %}
+{% load render_table from django_tables2 %}
+{% load static %}
+
+{% block body_base %}
+
+{% csrf_token %}
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/base/jquery-ui.css">
+
+
+
+<script type="text/javascript">
+
+
+jQuery(function($) {
+    $('.date-picker').datepicker( {
+        changeMonth: true,
+        changeYear: true,
+        showButtonPanel: true,
+        dateFormat: 'MM yy',
+        onClose: function(dateText, inst) { 
+            $(this).datepicker('setDate', new Date(inst.selectedYear, inst.selectedMonth, 1));
+        }
+    });
+});
+
+
+function month(){
+	if($("#startDate").val()){document.forms["sub"].submit();}
+}
+
+
+</script>
+<style>
+.ui-datepicker-calendar {
+    display: none;
+    width:100%;
+    padding:0;
+    max-width:100%;
+    box-sizing:border-box;
+    position:relative;
+    }
+   
+   
+.date-picker {
+	width:100%;
+}       
+    
+</style>
+{% csrf_token %}
+<br><br><br><br>
+
+
+<div class="container" >
+	<div class="row">
+		<div class="col-xs-6 col-md-4" style="width:20%">
+    <div class="panel-heading"><strong>Menu</strong></div>
+    <div class="list-group">
+        <a class="list-group-item account-settings" href="pinakastimwn">
+            Pricing
+        </a>
+        <a class="list-group-item account-password" href="paroxhs">
+            Paroxhs
+        </a>
+        <a class="list-group-item account-delete" href="metapolishs">
+           Metapolishs
+        </a>
+    </div>
+</div>
+
+<div class="col-xs-6 col-md-4" style="width:80%">
+	{% block content %}
+	
+	{% endblock %}
+	
+	
+	</div>
+	
+</div>	
+</div>
+<style>
+.ui-datepicker-calendar {
+    display: none;
+    }
+
+</style>
+
+
+{% endblock %}

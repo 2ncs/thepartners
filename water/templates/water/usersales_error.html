@@ -1,0 +1,33 @@
+{% extends "water/dashboard/dashboard_both.html" %}
+{% load i18n %}
+{% load render_table from django_tables2 %}
+{% load static %}
+{% block contentbody %}
+
+
+<div class="row">
+	<div class="col-md-12">
+		<div class="card">
+			<div class="header">
+				
+				
+				{% csrf_token %}
+				<p id="month" class="category" style="display: inline;">{{ month }}.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+                                    
+<script>
+
+
+
+</script>
+
+
+                                    
+                                    
+{% endblock %}                                    

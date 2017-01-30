@@ -1,0 +1,49 @@
+{% extends "site_base.html" %}
+
+{% load i18n %}
+{% load render_table from django_tables2 %}
+% load static %}
+
+{% block body_base %}
+
+{% csrf_token %}
+
+
+
+<div class="container">
+	<br><br><br><br>
+	
+	<div class="row">
+
+		<div class="col-sm-9">
+		<font size="5" color="red" >Used Promo Codes</font><br>
+				<br>	
+		<div class="col-xs-6 col-sm-3">
+				{% render_table used %}
+				</div>
+		<div class="col-xs-6 col-sm-3">		
+				{% render_table f_names %}
+				</div>
+				
+		<div class="col-xs-6 col-sm-3">	
+				{% render_table s_names %}
+				</div>
+			</div>	
+		<div class="col-xs-6 col-sm-3">	
+			<font size="5" color="green" >Not Used Promo Codes</font><br>
+				<br>			
+				{% render_table notused %}
+				</div>	
+	
+				
+			
+		</div>	
+	<br><br><br><br><br><br><br><br>
+</div>
+<style>
+
+
+</style>
+
+
+{% endblock %}

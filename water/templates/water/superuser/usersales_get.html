@@ -1,0 +1,40 @@
+{% extends "water/superuser/dashboard_active_sales.html" %}
+{% load i18n %}
+{% load render_table from django_tables2 %}
+{% load static %}
+{% block contentbody %}
+
+
+<div class="row">
+	<div class="col-md-9">
+		<div class="card">
+			<div class="header">
+				
+				<h4 class="title">Sales</h4>
+				<br>
+				{% csrf_token %}
+				<p>Choose Partner </p>
+				<br>
+				<form class="form-inline" action="sales" method="post" >
+					{% csrf_token %}
+					{{ form }}
+					<p style="display: inline;"> &nbsp; </p>
+					<input type="Submit" value="Fetch" style="display: inline;" class="btn btn-outline-info"/>
+				</form>
+				<br><br>
+				</div>
+				
+							</div>	
+						</div>		
+					</div>	
+				  
+<script>
+
+
+
+</script>
+
+
+                                    
+                                    
+{% endblock %}                                    

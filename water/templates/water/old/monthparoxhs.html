@@ -1,0 +1,19 @@
+{% extends "water/paroxhs.html" %}
+{% load render_table from django_tables2 %}
+{% block month %}
+<div class ="container" style="width:100%">
+<div class="row">
+
+		
+		
+		
+			<font size="5" color="red" >Paroxhs</font><br>
+				<br>	
+				{% render_table used %}
+				<br>
+				<font size="3" color="blue" >Cost Resume:	{{ message }} x {{ cost }} = {{ data }} euro</font>
+				</div>	
+		
+<br><br><br><br><br>
+</div>
+{% endblock %}

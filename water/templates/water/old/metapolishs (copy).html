@@ -1,0 +1,29 @@
+{% extends "water/userpage.html" %}
+
+{% block content %}
+<div class ="container" style="width:100%; background-color:#CCCCCC;">meta
+<br><br><br><br>
+	<div class="row">
+		<div class="col-xs-6 col-sm-4"></div>
+			<div class="col-xs-6 col-sm-4">
+		<form action="/water/monthmetapolishs" method="post" id="sub">
+			{% csrf_token %}
+			{{ form }}
+		</form>
+		</div>
+		<div class="col-xs-6 col-sm-4"></div>
+	</div>		
+	<br><br>
+<div class="row">
+		<div class="col-xs-6 col-sm-4"></div>
+			<div class="col-xs-6 col-sm-4">
+		<button id="test" class="btn btn-success btn-block" width= 250px onclick="month()" >Show</button>
+		</div>
+		<div class="col-xs-6 col-sm-4"></div>
+	</div>
+	<br><br>
+	{% block month %}
+	
+	{% endblock %}			
+</div>
+{% endblock %}

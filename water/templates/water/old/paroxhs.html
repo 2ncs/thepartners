@@ -1,0 +1,28 @@
+{% extends "water/userpage.html" %}
+
+{% block content %}
+<div class ="container" style="width:100%; background-color:#CCCCCC;">
+<br><br><br><br>
+	<div class="row" align="center">
+		
+		<div class="col-md-6 col-md-offset-3">
+		<form action="/water/monthparoxhs" method="post" id="sub">
+			{% csrf_token %}
+			{{ form }}
+		</form>
+		</div>
+		
+	</div>		
+	<br><br>
+<div class="row" align="center">
+		
+			
+		<button id="test" class="btn btn-success btn-block" style="width:25%" width= 250px onclick="month()" >Show</button>
+		
+	</div>
+	<br><br>
+	{% block month %}
+	
+	{% endblock %}			
+</div>
+{% endblock %}

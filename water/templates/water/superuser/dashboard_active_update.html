@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+{% load i18n %}
+{% load render_table from django_tables2 %}
+{% load static %}
+{% load account_tags %}	
+<head>
+	<meta charset="utf-8" />
+	
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+	{% include "water/dashboard/title.html" %}
+	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+
+    <!-- Bootstrap core CSS     -->
+    <link href="{% static "water/css/bootstrap.min.css" %}" rel="stylesheet" />
+
+    <!-- Animation library for notifications   -->
+    <link href="{% static "water/css/animate.min.css" %}" rel="stylesheet"/>
+
+    <!--  Light Bootstrap Table core CSS    -->
+    <link href="{% static "water/css/light-bootstrap-dashboard.css" %}" rel="stylesheet"/>
+
+
+    <!--  CSS for Demo Purpose, don't include it in your project     -->
+    <link href="{% static "water/css/demo.css" %}" rel="stylesheet" />
+
+
+    <!--     Fonts and icons     -->
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
+    <link href="{% static "water/css/pe-icon-7-stroke.css" %}" rel="stylesheet" />
+
+</head>
+<body>
+
+<div class="wrapper">
+    <div class="sidebar" data-color="red" data-image="{% static "water/img/sidebar-5.jpg" %}">
+
+    <!--
+
+        Tip 1: you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple"
+        Tip 2: you can also add an image using data-image tag
+
+    -->
+
+    	<div class="sidebar-wrapper">
+            <div class="logo">
+                <a href="menu" class="simple-text">
+                    Menu
+                </a>
+            </div>
+
+            <ul class="nav">
+				<li>
+                    <a href="promocodes">
+                        <i class="pe-7s-ticket"></i>
+                        <p>Promo Codes</p>
+                    </a>
+                </li>
+                
+                
+                <li>
+                    <a href="sales">
+                        <i class="pe-7s-cash"></i>
+                        <p>Sales</p>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="customersserved">
+                        <i class="pe-7s-users"></i>
+                        <p>Customers Served</p>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="statistics">
+                        <i class="pe-7s-graph1"></i>
+                        <p>Statistics</p>
+                    </a>
+                </li>
+                
+                <li class="active">
+                    <a href="update">
+                        <i class="pe-7s-refresh-2"></i>
+                        <p>Update Data</p>
+                    </a>
+                </li>
+                
+            </ul>
+    	</div>
+    </div>
+
+    <div class="main-panel">
+        <nav class="navbar navbar-default navbar-fixed">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    {% include "water/dashboard/butlair.html" %}
+                </div>
+                <div class="collapse navbar-collapse">
+                   
+
+                    <ul class="nav navbar-nav navbar-right">
+						{% if request.user.is_authenticated %}
+                        <li>
+                           <a> <i class="fa fa-user"></i> {% user_display request.user %}</a>
+                        </li>
+                        <li>
+                           <a href="/water/menu"> <i class="fa fa-cog"></i> menu</a>
+                        </li>
+                        </li>
+                        <li>
+                            <a id="account_logout" href="{% url 'account_logout' %}"><i class="fa fa-power-off"></i> {% trans "Log out" %}</a>
+                        </li>
+                        {% else %}
+                        <li><a href="{% url 'account_login' %}">{% trans "Log in" %}</a></li>
+                        {% endif %}
+                    </ul>
+                    <form id="accountLogOutForm" style="display: none;" action="{% url 'account_logout' %}" method="POST">
+							{% csrf_token %}
+						</form>
+                </div>
+            </div>
+        </nav>
+
+
+        <div class="content">
+            <div class="container-fluid">
+                {% block contentbody %}
+                {% endblock %}
+            </div>
+        </div>
+
+
+        {% include "water/dashboard/footer.html" %}
+
+    </div>
+</div>
+
+
+</body>
+
+    <!--   Core JS Files   -->
+    <script src="{% static "water/js/jquery-1.10.2.js" %}" type="text/javascript"></script>
+	<script src="{% static "water/js/bootstrap.min.js" %}" type="text/javascript"></script>
+
+	<!--  Checkbox, Radio & Switch Plugins -->
+	<script src="{% static "water/js/bootstrap-checkbox-radio-switch.js" %}"></script>
+
+	<!--  Charts Plugin -->
+	<script src="{% static "water/js/chartist.min.js" %}"></script>
+
+    <!--  Notifications Plugin    -->
+    <script src="{% static "water/js/bootstrap-notify.js" %}"></script>
+
+    <!--  Google Maps Plugin    -->
+    <script type="{% static "water/javascript" %}" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+
+    <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
+	<script src="{% static "water/js/light-bootstrap-dashboard.js" %}"></script>
+
+	<!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
+	<script src="{% static "water/js/demo.js" %}"></script>
+	
+	
+
+	<script type="text/javascript">
+    	
+    	
+	</script>
+
+</html>

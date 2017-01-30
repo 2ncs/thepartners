@@ -1,0 +1,21 @@
+{% extends "water/supermetapolishs.html" %}
+{% load render_table from django_tables2 %}
+{% block month %}
+<div class ="container" style="width:100%">
+<div class="row">
+
+		
+		
+		
+			<font size="5" color="red" >Metapolishs</font><br>
+				<br>	
+				{% render_table used %}
+				<br>
+				<font size="3" color="blue" >Sinolika Esoda: {{ summ }}<br>
+												Pososto Metapolishs: {{ cost }}%<br>
+												Sinoliko Xreos: {{ summ }} x {{ cost }}% = {{ data }}</font>
+				</div>	
+		
+<br><br><br><br><br>
+</div>
+{% endblock %}

@@ -1,0 +1,100 @@
+{% extends "site_base.html" %}
+
+{% load i18n %}
+{% load render_table from django_tables2 %}
+% load static %}
+
+{% block body_base %}
+
+{% csrf_token %}
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/base/jquery-ui.css">
+
+
+
+<script type="text/javascript">
+jQuery(function($) {
+    $('.date-picker').datepicker( {
+        changeMonth: true,
+        changeYear: true,
+        showButtonPanel: true,
+        dateFormat: 'MM yy',
+        onClose: function(dateText, inst) { 
+            $(this).datepicker('setDate', new Date(inst.selectedYear, inst.selectedMonth, 1));
+        }
+    });
+});
+
+
+function month(){
+	if($("#startDate").val()){document.forms["sub"].submit();}
+}
+
+
+</script>
+<style>
+.ui-datepicker-calendar {
+    display: none;
+    }
+    
+    
+</style>
+
+<div class="container">
+	<br><br><br><br>
+	<div class="row">
+		<div class="col-xs-6 col-sm-4"></div>
+			<div class="col-xs-6 col-sm-4">
+		<form action="/water/month" method="post" id="sub">
+			{% csrf_token %}
+			{{ form }}
+		</form>
+		</div>
+		<div class="col-xs-6 col-sm-4"></div>
+	</div>		
+	<br><br><br><br>
+	
+	<div class="row">
+
+		
+		
+		<div class="col-xs-6">
+			<font size="5" color="red" >Paroxhs</font><br>
+				<br>	
+				{% render_table used %}
+				<br>
+				<font size="3" color="blue" >Cost Resume:	{{ message }} x {{ cost }} = {{ data }} euro</font>
+				</div>
+		
+			
+		
+		<div class="col-xs-6">	
+			<font size="5" color="green" >Metapolishs</font><br>
+				<br>			
+				{{ data }}
+				</div>	
+	
+				
+			
+		</div>
+		<br><br>
+		<div class="row">
+		<div class="col-xs-6 col-sm-4"></div>
+			<div class="col-xs-6 col-sm-4">
+		<button id="test" class="btn btn-success btn-block" width= 250px onclick="month()" >Show</button>
+		</div>
+		<div class="col-xs-6 col-sm-4"></div>
+	</div>			
+	<br><br><br><br><br><br><br><br>
+</div>
+<style>
+.ui-datepicker-calendar {
+    display: none;
+    }
+
+</style>
+
+
+{% endblock %}

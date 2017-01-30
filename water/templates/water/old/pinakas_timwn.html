@@ -1,0 +1,71 @@
+{% extends "water/userpage.html" %}
+
+{% block content %}
+<div class ="container" style="width:100%; background-color:#CCCCCC;">
+	{{ pro }}
+<h2>Times Paroxhs</h2>	
+	<div class="table-responsive">
+		<table class="table">
+			<thead>
+				<tr>
+					<th>
+					Arithmos Pelatwn <= {{ orio1 }}
+					</th>
+					<th>
+					{{ orio1 }} < Arithmos Pelatwn <= {{ orio2 }} 
+					
+					</th>
+					<th>
+					
+					Arithmos Pelatwn > {{ orio2 }}
+					</th>
+					
+				</tr>
+			
+			
+			
+			</thead>
+			<tbody>
+				<tr>
+					<td>
+					{{ timh1 }}eu ana pelath
+					</td>
+					<td>
+					{{ timh2 }}eu ana pelath
+					</td>
+					<td>
+					{{ timh3 }}eu ana pelath
+					</td>
+				</tr>
+			
+			</tbody>
+		
+		
+		</table>
+	
+	
+	
+
+	</div>
+	<br><br><br>
+	<h2>Pososto metapolishs</h2>
+	
+	<div class="table-responsive">
+		<table class="table">
+			<thead>
+				<tr>
+					<th>
+					{{ pososto }}% of total income from Client
+					</th>
+				</tr>
+			
+			
+			
+			</thead>
+		
+		</table>
+	
+	</div>
+
+</div>
+{% endblock %}

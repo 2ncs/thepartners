@@ -1,0 +1,49 @@
+{% extends "water/dashboard/dashboard_both_active_sales.html" %}
+{% load i18n %}
+{% load render_table from django_tables2 %}
+{% load static %}
+{% block contentbody %}
+<script src="{% static "water/js/myjs_sales.js" %}"></script>
+
+<div class="row">
+	<div class="col-md-9">
+		<div class="card">
+			<div class="header">
+				
+				<h4 class="title">Month</h4>
+				<br>
+				{% csrf_token %}
+				<p id="month" class="category" style="display: inline;">{{ month }} {{ year }}</p>
+				<image style="width:9px; height=9px;" type="button" onclick="previous()" hspace="20" src="{% static "water/img/previous.jpg" %}">
+				<image style="width:9px; height=9px;" type="button" onclick="next()" hspace="15" src="{% static "water/img/next.jpg" %}">
+				</div>
+				<br>
+			</div>
+		</div>
+	</div>
+
+
+<div class="row">
+	<div class="col-md-9">
+		<div class="card">
+			<div class="header">
+				<h4 class="title">Sales</h4>
+				
+			</div>
+			<div id="trapezi" class="content table-responsive table-full-width">
+				{% render_table data %}
+
+			</div>
+		</div>
+	</div>
+   </div>                                 
+<script>
+
+
+
+</script>
+
+
+                                    
+                                    
+{% endblock %}                                    

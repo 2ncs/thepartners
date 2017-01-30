@@ -1,0 +1,93 @@
+{% extends "site_base.html" %}
+
+{% load i18n %}
+{% load render_table from django_tables2 %}
+% load static %}
+
+{% block body_base %}
+
+{% csrf_token %}
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/base/jquery-ui.css">
+
+
+
+<script type="text/javascript">
+
+
+
+
+</script>
+<style>
+.ui-datepicker-calendar {
+    display: none;
+    }
+    
+    
+</style>
+
+<div class="container" style="background-color:#bcb3b3">
+	<div class="row">
+		<br><br><br><br><br>
+	<div class="col-sm-4">
+    <div class="thumbnail">
+        <!-- Place the anchor tag here to cover both your caption and image -->
+        <a href="paroxhs" class="">
+            <div class="caption">
+                <h4 class="">Check Paroxhs</h4>
+                <p class="msg">Dialexe mhna
+                </p>
+            </div>
+            <img src="http://lorempixel.com/400/300/technics/1/" alt="..." class="img-circle">
+        </a>
+        <!-- Anchor tag ends covering both image and caption -->
+    </div>
+</div>
+
+	<div class="col-sm-4">
+    <div class="thumbnail">
+        <!-- Place the anchor tag here to cover both your caption and image -->
+        <a href="metapolishs" class="">
+            <div class="caption">
+                <h4 class="">Metapolishs</h4>
+                <p class="">Check Metapolishs
+                </p>
+            </div>
+            <img src="http://lorempixel.com/400/300/technics/1/" alt="..." class="img-circle">
+        </a>
+        <!-- Anchor tag ends covering both image and caption -->
+    </div>
+</div>
+
+
+	<div class="col-sm-4">
+    <div class="thumbnail">
+        <!-- Place the anchor tag here to cover both your caption and image -->
+        <a href="pinakastimwn" class="">
+            <div class="caption">
+                <h4 class="">Pinakas Timwn</h4>
+                <p class="">Check Pinakas Timwn
+                </p>
+            </div>
+            <img src="http://lorempixel.com/400/300/technics/1/" alt="..." class="img-circle">
+        </a>
+        <!-- Anchor tag ends covering both image and caption -->
+    </div>
+</div>
+
+
+</div>
+<br><br><br><br><br>
+
+</div>
+<style>
+.ui-datepicker-calendar {
+    display: none;
+    }
+
+</style>
+
+
+{% endblock %}
