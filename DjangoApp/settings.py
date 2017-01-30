@@ -21,6 +21,7 @@ ALLOWED_HOSTS = [
     "192.168.2.2",
     "192.168.2.3",
     "192.168.2.4",
+    "http://ourpartners.azurewebsites.net/",
 ]
 
 # Local time zone for this installation. Choices can be found here:
