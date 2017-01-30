@@ -1,0 +1,92 @@
+{% extends "site_base.html" %}
+{% load staticfiles %}
+{% load i18n %}
+
+{% block head_title %}
+{% endblock %}
+
+{% block body_class %}home{% endblock %}
+
+{% block body_base %}
+
+    <section class="jumbotron">
+        <div class="container">
+            {% include "_messages.html" %}
+            <h1>{% blocktrans %}Welcome to<br>Butlair Info Center NOT{% endblocktrans %}</h1>
+            <p>
+                {% blocktrans %}
+                Some Bullshit...
+                {% endblocktrans %}
+            </p>
+             
+            {% if not user.is_authenticated %}
+            {% url "account_login" as login_url %}
+            
+            <p>{% blocktrans %}You can <a href="{{ login_url }}" class="btn btn-default">Log In</a> here.{% endblocktrans %}</p>
+            {% endif %}
+        </div>
+    </section>
+    <section>
+		<div class="bkg">
+        <div class="container">
+            <h2 class="text-center">{% blocktrans %}What is This shit?{% endblocktrans %}</h2>
+            <p class="lead">
+                {% blocktrans %}
+                <b>Well....</b>
+                Bla Bla......
+                {% endblocktrans %}
+            </p>
+     
+            
+            <div class="feature-columns">
+                <div>
+					
+                    <i class="fa fa-cubes fa-3x"></i><br>
+                    {% blocktrans %}
+                    <b>Starter projects</b> provide project layout,
+                    scaffolding, already integrated components and
+                    ready-to-go code.
+                    {% endblocktrans %}
+                </div>
+                <div>
+                    <i class="fa fa-puzzle-piece fa-3x"></i><br>
+                    {% blocktrans %}
+                    <b>Reusable apps</b> provide common
+                    infrastructure, back-end functionality,
+                    and user-facing components.
+                    {% endblocktrans %}
+                </div>
+                <div>
+                    <i class="fa fa-tint fa-3x"></i><br>
+                    {% blocktrans %}
+                    <b>Themes</b> provide default templates and
+                    stylesheets for quick prototyping and easy customization.
+                    {% endblocktrans %}
+                </div>
+            </div>
+        </div>
+       </div>
+    </section>
+    <section>
+        <div class="container">
+			
+            <p class="lead text-center">
+                {% blocktrans %}
+                See <a href="http://butlair.com/">Butlair.com</a>
+                for more information.
+                {% endblocktrans %}
+            </p>
+        </div>
+    </section>
+    
+    <style>
+		.bkg{
+			width:100%;
+			height:400px;
+			background-image:url("{% static 'water/img/download.jpg' %}");
+			background-size:100% 100%;
+			border:1px solid red;
+		}
+    </style>
+    
+{% endblock %}

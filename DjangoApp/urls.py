@@ -1,41 +1,22 @@
-"""
-Definition of urls for DjangoApp.
-"""
+from django.conf import settings
+from django.conf.urls import include, url
+from django.conf.urls.static import static
+from django.views.generic import TemplateView
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from django.contrib import admin
+from django.views.generic import RedirectView
 
-from datetime import datetime
-from django.conf.urls import url
-from app.forms import BootstrapAuthenticationForm
-from app.views import *
-from app.models import *
-from django.contrib.auth.views import *
-
-
-# Uncomment the next lines to enable the admin:
-# from django.conf.urls import include
-# from django.contrib import admin
-# admin.autodiscover()
 
 urlpatterns = [
-    # Examples:
-     
-    url(r'^$', home, name='home'),
-    url(r'^contact$', contact, name='contact'),
-    url(r'^about', about, name='about'),
-   url(r'^login/$', login, {
-            'template_name': 'app/login.html',
-            'authentication_form': BootstrapAuthenticationForm,
-            'extra_context':
-            {
-                'title':'Log in',
-                'year':datetime.now().year,
-            }
-        },
-        name='login'),
-       url(r'^logout$', logout, {  'next_page': '/'  },        name='logout')
-
-    # Uncomment the admin/doc line below to enable admin documentation:
-    # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
-
-    # Uncomment the next line to enable the admin:
-    # url(r'^admin/', include(admin.site.urls)),
+    url(r"^$", TemplateView.as_view(template_name="homepage.html"), name="home"),
+    url(r"^admini/", include(admin.site.urls)),
+    url(r"^account/", include("account.urls")),
+    url(r"^water/", include("water.urls")),
 ]
+
+
+
+urlpatterns += staticfiles_urlpatterns()
+
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
